@@ -1,7 +1,7 @@
 {
-  "name": "node-typescript-module-boilerplate",
+  "name": "get-root-path",
   "version": "1.0.0",
-  "description": "/***** TODO Stuff and things ******/",
+  "description": "Get the closest parent folder containing a package.json file",
   "main": "lib/index.js",
   "typings": "lib/index",
   "files": [
@@ -10,27 +10,39 @@
   "scripts": {
     "compile-ts": "./node_modules/typescript/bin/tsc -p ./",
     "compile-ts:watch": "./node_modules/typescript/bin/tsc -p ./ --watch",
-    "test": "mocha test/",
+    "test": "npm run compile-ts; ROOT_PATH_FOR_TEST=$(pwd) mocha test/get-root-path.test.js & APP_ROOT_PATH=/fake/location mocha test/get-root-path-override.test.js",
     "boilerplate-check": "./script/ensure-fully-implemented.rb",
-    "test:watch": "chokidar ./lib/** ./config/** ./test/** --initial -c \"mocha test/\""
+    "test:watch": "chokidar ./lib/** ./config/** ./test/** --initial -c \"ROOT_PATH_FOR_TEST=$(pwd) mocha test/get-root-path.test.js & APP_ROOT_PATH=/fake/location mocha test/get-root-path-override.test.js\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andfaulkner/node-typescript-module-boilerplate.git"
+    "url": "git+https://github.com/andfaulkner/node-get-root-path.git"
   },
   "keywords": [
-    "/**** TODO ADD KEYWORDS ****/"
+    "path",
+    "root",
+    "root-path",
+    "boilerplate",
+    "config",
+    "setup",
+    "directory-structure",
+    "file",
+    "directory",
+    "load",
+    "import",
+    "require",
+    "convenience",
+    "low-level"
   ],
   "author": "Andrew Faulkner <andfaulkner@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andfaulkner/node-typescript-module-boilerplate/issues"
+    "url": "https://github.com/andfaulkner/node-get-root-path/issues"
   },
-  "homepage": "https://github.com/andfaulkner/node-typescript-module-boilerplate#readme",
+  "homepage": "https://github.com/andfaulkner/node-get-root-path#readme",
   "dependencies": {
-    "colors": "^1.1.2",
-    "detect-node": "^2.0.3",
-    "string.prototype.padend": "^3.0.0"
+    "bluebird": "^3.4.7",
+    "mad-logs": "^3.1.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.43",

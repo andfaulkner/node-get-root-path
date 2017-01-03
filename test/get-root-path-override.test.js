@@ -1,6 +1,9 @@
 // ensure environment knows testing is occurring
 process.env.mocha = true;
 
+const appRootPathFromEnvVar = process.env.APP_ROOT_PATH;
+console.log(`appRootPathFromEnvVar: ${appRootPathFromEnvVar}`);
+
 // Store original process.argv
 const oldProcArgs = Object.assign({}, process.argv);
 
@@ -14,8 +17,8 @@ const path = require('path');
 const { stderr, stdout } = require('test-console');
 
 /*********************************** IMPORT FILES TO BE TESTED ************************************/
-const __nodeModuleBoilerplate__ = require('../lib/index');
-const nodeModuleBoilerplateExport = __nodeModuleBoilerplate__.nodeModuleBoilerplateExport;
+const getRootPath = require('../lib/index');
+const rootPath = getRootPath.rootPath;
 
 /******************************************** HELPERS *********************************************/
 /**
@@ -42,15 +45,10 @@ function blockErrorOutput(fn) {
 }
 
 /********************************************* TESTS **********************************************/
-describe('nodeModuleBoilerplateExport', function() {
-    it('exists', function() {
-        expect(nodeModuleBoilerplateExport).to.exist;
-    });
-    it('is the thing', function() {
-        expect(nodeModuleBoilerplateExport).to.be.an('object');
-    });
-    it('#nodeModuleBoilerplateExport.nodeModuleBoilerplatePlaceholderFn throws if run', function() {
-        expect(nodeModuleBoilerplateExport.nodeModuleBoilerplatePlaceholderFn).to.throw(Error);
+describe('rootPath', function() {
+    it('returns the value of environment variable APP_ROOT_PATH if it is defined', function() {
+        console.log(`appRootPathFromEnvVar: ${appRootPathFromEnvVar}`);
+        expect(rootPath).to.equal(appRootPathFromEnvVar);
     });
 });
 
