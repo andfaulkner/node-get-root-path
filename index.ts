@@ -64,7 +64,7 @@ export function getRootPathSync(): string {
             return getRoot(path.join(dir, '..'));
         }
         return dir;
-    }(__dirname));
+    }(path.join(__dirname, '..')));
 }
 
 /**
@@ -88,7 +88,7 @@ export function getRootPathAsync() {
                 throwIfAtFsRoot(dir);
                 return Promise.resolve(getRoot(path.join(dir, '..')));
             });
-    }(__dirname)).then((dir) => dir);
+    }(path.join(__dirname, '..'))).then((dir) => dir);
 }
 
 /**
