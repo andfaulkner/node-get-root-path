@@ -64,7 +64,7 @@ export function getRootPathSync(): string {
             return getRoot(path.join(dir, '..'));
         }
         return dir;
-    }(path.join(__dirname, '..')));
+    }(path.join(__dirname, '../..')));
 }
 
 /**
