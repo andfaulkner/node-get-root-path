@@ -12,7 +12,7 @@ import * as fs from 'fs';
 import * as Promise from 'bluebird';
 import * as madLogs from 'mad-logs';
 import { path as appRootPath } from 'app-root-path';
-require('app-root-path').path
+
 /**************************************** PROJECT IMPORTS *****************************************/
 const TAG = madLogs.buildFileTag('get-root-path.ts');
 
