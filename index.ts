@@ -11,6 +11,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as Promise from 'bluebird';
 import * as madLogs from 'mad-logs';
+import { rootPath as appRootPath } from 'app-root-path';
 
 /**************************************** PROJECT IMPORTS *****************************************/
 const TAG = madLogs.buildFileTag('get-root-path.ts');
@@ -40,7 +41,7 @@ export class PathfinderError extends Error {
  */
 export const rootPath: string = (process.env.APP_ROOT_PATH
                                     ? process.env.APP_ROOT_PATH
-                                    : getRootPathSync());
+                                    : appRootPath);
 
 if (process.env.LOG_LEVEL === 'silly') {
     console.log(`${TAG} project root path: `, rootPath);

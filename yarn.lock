@@ -10,6 +10,10 @@
   version "6.0.52"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.52.tgz#1ac3a99b42320f9e463482f25af4c2359473aaa6"
 
+app-root-path@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-2.0.1.tgz#cd62dcf8e4fd5a417efc664d2e5b10653c651b46"
+
 assertion-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.0.2.tgz#13ca515d86206da0bac66e834dd397d87581094c"
@@ -82,7 +86,7 @@ define-properties@^1.1.2:
     foreach "^2.0.5"
     object-keys "^1.0.8"
 
-detect-node, detect-node@^2.0.3:
+detect-node@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.3.tgz#a2033c09cc8e158d37748fbde7507832bd6ce127"
 
