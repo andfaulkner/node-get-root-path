@@ -1,6 +1,6 @@
 {
   "name": "get-root-path",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Get the closest parent folder containing a package.json file",
   "main": "lib/index.js",
   "typings": "lib/index",
@@ -10,6 +10,7 @@
   "scripts": {
     "compile-ts": "./node_modules/typescript/bin/tsc -p ./",
     "compile-ts:watch": "./node_modules/typescript/bin/tsc -p ./ --watch",
+    "prepublish": "npm run compile-ts",
     "test": "npm run compile-ts; ROOT_PATH_FOR_TEST=$(pwd) mocha test/get-root-path.test.js & APP_ROOT_PATH=/fake/location mocha test/get-root-path-override.test.js",
     "boilerplate-check": "./script/ensure-fully-implemented.rb",
     "test:watch": "chokidar ./lib/** ./config/** ./test/** --initial -c \"ROOT_PATH_FOR_TEST=$(pwd) mocha test/get-root-path.test.js & APP_ROOT_PATH=/fake/location mocha test/get-root-path-override.test.js\""
@@ -52,13 +53,12 @@
     "colors": "^1.1.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-promise": "^3.4.0",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.4",
     "mocha": "^3.2.0",
     "sinon": "^1.17.6",
     "test-console": "^1.0.0",
     "typescript": "2.1.4"
   },
   "peerDependencies": {
-    "lodash": "^4.17.2"
   }
 }

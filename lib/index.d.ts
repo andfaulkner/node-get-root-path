@@ -13,6 +13,7 @@ export declare class PathfinderError extends Error {
  * Export the project root as-is
  */
 export declare const rootPath: string;
+export default rootPath;
 /**
  * Find the project root.
  * If user set process.env.APP_ROOT_PATH, use that. If not found, traverse backwards from current

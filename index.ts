@@ -43,9 +43,11 @@ export const rootPath: string = (process.env.APP_ROOT_PATH
                                     ? process.env.APP_ROOT_PATH
                                     : appRootPath);
 
-if (process.env.LOG_LEVEL === 'silly') {
+if (process.env.LOG_LEVEL === "silly") {
     console.log(`${TAG} project root path: `, rootPath);
 }
+
+export default rootPath;
 
 /**
  * Find the project root.
