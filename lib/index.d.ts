@@ -1,3 +1,8 @@
+/**************************************************************************************************
+ *
+ *    Find the root path of the application i.e. the folder with a package.json file.
+ *
+ */
 /***************************************** ERROR HANDLING *****************************************/
 /**
  * Use when unable to resolve a path or find a file / directory
@@ -17,7 +22,7 @@ export default rootPath;
 /**
  * Find the project root.
  * If user set process.env.APP_ROOT_PATH, use that. If not found, traverse backwards from current
- * directory until a directory is found containing both node_modules and package.json.
+ * directory until a directory is found containing a package.json file.
  */
 export declare function getRootPathSync(): string;
 /**
