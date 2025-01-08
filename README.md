@@ -20,7 +20,7 @@
     value of APP_ROOT_PATH as the root path instead.
 
 
-## Real-world usage (especially if transpiling in a large, complex project)
+## Real-world usage
 
     import { rootPath } from 'get-root-path';
 
@@ -28,6 +28,6 @@
         .use('/', express.static(path.join(rootPath, 'build/app/client')));
 
 
-## What it _really_ does
+## What it does
 *   No magic: it just finds the nearest parent (ancestor?) directory containing a package.json file
     *   99% of the time this will be the project root of the file doing the lookup.
