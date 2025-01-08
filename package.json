@@ -12,7 +12,6 @@
     "compile-ts:watch": "./node_modules/typescript/bin/tsc -p ./ --watch",
     "prepublish": "npm run compile-ts",
     "test": "npm run compile-ts; ROOT_PATH_FOR_TEST=$(pwd) mocha test/get-root-path.test.js & APP_ROOT_PATH=/fake/location mocha test/get-root-path-override.test.js",
-    "boilerplate-check": "./script/ensure-fully-implemented.rb",
     "test:watch": "chokidar ./lib/** ./config/** ./test/** --initial -c \"ROOT_PATH_FOR_TEST=$(pwd) mocha test/get-root-path.test.js & APP_ROOT_PATH=/fake/location mocha test/get-root-path-override.test.js\""
   },
   "repository": {
@@ -47,7 +46,6 @@
     "mad-logs": "^3.1.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.14",
     "@types/node": "^22.10.5",
     "chai": "^3.5.0",
     "colors": "^1.1.2",
