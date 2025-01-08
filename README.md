@@ -3,26 +3,31 @@
     *   (...or a single require if you're oldskool)
 *   Memoizes the result for rapid lookups after initial run
 
+## What is the root path?
+*   The nearest directory up the file system tree with a package.json file.
+
+## Installation
+
+    npm install --save get-root-path
+
 ## Basic usage
 
-    import { rootPath } from '../get-root-path';
+    import { rootPath } from 'get-root-path';
 
     path.join(rootPath, 'build/app/client');
 
-*   if you set the APP_ROOT_PATH environment variable, it will return this as the root path
-    instead
+*   If you set the APP_ROOT_PATH environment variable, it will return the
+    value of APP_ROOT_PATH as the root path instead.
 
 
 ## Real-world usage (especially if transpiling in a large, complex project)
-    import { rootPath } from '../get-root-path';
+
+    import { rootPath } from 'get-root-path';
 
     const app = express()
         .use('/', express.static(path.join(rootPath, 'build/app/client')));
 
 
 ## What it _really_ does
-*   No magic - it just finds the nearest parent (ancestor?) directory containing both a
-    package.json file and a node_modules folder. 99% of the time this will be the project root of
-    the file doing the lookup.
-    *   If it ever gives you the wrong directory, definitely file an issue, I'd be more than
-        happy to fix it
+*   No magic: it just finds the nearest parent (ancestor?) directory containing a package.json file
+    *   99% of the time this will be the project root of the file doing the lookup.
